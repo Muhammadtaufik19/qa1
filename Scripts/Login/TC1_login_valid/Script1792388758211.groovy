@@ -17,7 +17,7 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-WebUI.openBrowser("https://www.saucedemo.com/?utm_source")
+WebUI.openBrowser(GlobalVariable.url)
 
 String passwordInfo = WebUI.getText(findTestObject("Object Repository/Login/Get password"))
 
@@ -31,6 +31,8 @@ WebUI.delay(1)
 
 WebUI.setText(findTestObject("Object Repository/Login/Password"), GlobalVariable.Password)
 
+WebUI.takeScreenshot()
+
 WebUI.click(findTestObject("Object Repository/Login/Button login"))
 
 WebUI.verifyElementPresent(findTestObject("Object Repository/Dashboard/Title"), 5)
@@ -38,3 +40,4 @@ WebUI.verifyElementPresent(findTestObject("Object Repository/Dashboard/Title"), 
 WebUI.verifyElementText(findTestObject("Object Repository/Dashboard/Title"), "Products")
 
 
+WebUI.takeScreenshot()
